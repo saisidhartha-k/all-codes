@@ -1,0 +1,27 @@
+
+<div class="cart-container">
+    <h1>Your Cart</h1>
+    <table class="cart-item-table">
+      <thead>
+        <tr>
+          <th>Cycle Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cartItem of cartItems" class="cart-item">
+          <td>{{ cartItem.cycle.cycleName }}</td>
+          <td>{{ cartItem.quantity }}</td>
+          <td>{{ cartItem.cycle.price| currency:'INR' }}</td>
+          <td><button (click)="removeItemsFromCart(cartItem.cycle.cycleId)">Remove From Cart</button></td> 
+        </tr>
+      </tbody>
+      {{calculateTotalPrice()}}
+      <p>Total Price: {{ totalPrice| currency:'INR' }}</p>
+    </table>
+    <button (click)="checkout()">Check-Out</button>
+
+  </div>
+  

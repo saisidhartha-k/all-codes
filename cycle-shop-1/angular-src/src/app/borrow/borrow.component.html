@@ -1,0 +1,44 @@
+<!-- <h1>Borrow a Cycle</h1>
+
+<form (submit)="borrowCycle()">
+  <label for="cycleId">Cycle ID:</label>
+  <input type="text" id="cycleId" [(ngModel)]="borrowData.id" name="id" required>
+  
+  <label for="borrowCount">Borrow Count:</label>
+  <input type="number" id="borrowCount" [(ngModel)]="borrowData.count" name="count" required>
+  
+  <button type="submit">Borrow</button>
+</form>
+
+<p>{{ borrowResult }}</p> -->
+<!-- borrow.component.html -->
+<div>
+  
+  <h2>Buy Items</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Stock</th>
+        <th>Num Available</th>
+        <th>Price</th>
+        <th>Count to Borrow</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cycle of cycles">
+        <td>{{ cycle.cycleId }}</td>
+        <td>{{ cycle.cycleName }}</td>
+        <td>{{ cycle.stock }}</td>
+        <td>{{ cycle.numAvailable }}</td>
+        <td>{{cycle.price}}</td>
+        <!-- <td><input type="number" [(ngModel)]="cycle.countToBorrow"></td> -->
+        <!-- <td><input type="number" [(ngModel)]="borrowData.count"></td> -->
+        <td><input type="number" #count required [defaultValue]="1"></td>
+        <td><button (click)="addCart(cycle.cycleId,count.value)">add to cart</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

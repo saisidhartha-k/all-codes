@@ -1,0 +1,23 @@
+
+<div class="toolbar" role="banner">
+  <img src="assets/images/logo.png" alt="Your Image Description" width="50" height="50">
+  <span><strong>Welcome to Cycle Shop</strong></span>
+    <div class="spacer"></div>
+    <div>
+      <img src="assets/images/login.png" alt="cycle" width="10" height="50">
+    </div>
+    <a routerLink="/login"><strong>Login/</strong></a><br>
+    <a routerLink="/logout"><strong>Logout</strong></a>
+</div>
+
+<div class="navbar">
+      <a routerLink="/list-data">List Data</a>
+      <a routerLink="/borrow">Borrow</a>
+      <a routerLink="/cart">Cart</a>
+      <a *ngIf="isUserAdmin()" routerLink="/restock">Restock</a>  
+</div><br>
+<div>
+  <img src="assets/images/cyclelist.png" alt="cycle" width="150" height="100">
+</div>
+
+<router-outlet></router-outlet>
