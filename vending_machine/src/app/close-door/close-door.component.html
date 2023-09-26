@@ -1,0 +1,23 @@
+<ul>
+  <li *ngFor="let product of products">
+    <p>Product ID: {{ product.id }}</p>
+    <p>Name : {{ product.name }}</p>
+    <p>Price: ₹{{ product.price }}</p>
+    <p>Quantity: {{ product.quantity }}</p>
+  </li>
+</ul>
+
+<div class="close-door">
+    <h2>Purchase</h2>
+    <label for="sectionId">Product ID:</label>
+    <input type="number" id="sectionId" [(ngModel)]="selectedProductId" min="1" />
+  
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" [(ngModel)]="selectedQuantity" min="1" />
+  
+    <button (click)="Buy(selectedProductId, selectedQuantity)">Buy</button>
+    <button (click)="closeDoor()">close</button>
+
+    <p>{{ vendingMachine.purchaseResult }}</p>
+  </div>
+  

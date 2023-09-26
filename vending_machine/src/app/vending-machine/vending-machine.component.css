@@ -1,0 +1,57 @@
+/* Reset default margin and padding */
+body, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the vending machine container */
+.vending-machine {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Style the product cards */
+.product-card {
+    margin-bottom: 10px;
+}
+
+.card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Style the purchase product section */
+.purchase-product {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button.open-door {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.open-door:hover {
+    background-color: #0056b3;
+}
