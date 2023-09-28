@@ -25,18 +25,23 @@
   
 <div>
   <h2>Add a Comment</h2>
-  <textarea [(ngModel)]="newCommentContent" placeholder="Enter your comment"> </textarea>
+  <textarea [(ngModel)]="newCommentContent" placeholder="Enter your comment"></textarea>
   <div>
-    <label for="userDropdown">Select User:</label>
-    <select id="userDropdown" [(ngModel)]="selectedUser">
-      <option value="Sidharth">Sidharth</option>
-      <option value="SSS">SSS</option>
-      <option value="AAA">AAA</option>
-    </select>
-    <button (click)="insertSelectedUser()">Insert User</button>
+    <label for="tagInput">Add Tags:</label>
+    <tag-input id="tagInput" [(ngModel)]="selectedTags" [onlyFromAutocomplete]="true">
+      <tag-input-dropdown [autocompleteItems]="autocompleteItems"></tag-input-dropdown>
+    </tag-input>
+    <button (click)="insertSelectedTags()">Insert Tags</button>
   </div>
   <button (click)="addComment()">Submit Comment</button>
 </div>
+
+<!-- <div style="margin: 30px;">
+  <div class="form-group">
+    <label>Angular tags simple input</label>
+    <tag-input [(ngModel)]="items"></tag-input>
+  </div>
+</div> -->
 
 
 <div *ngIf="!post">

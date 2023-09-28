@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AdminGuard } from './auth/admin.guard';
+ import { AuthButtonComponent } from './auth-button-component/auth-button-component.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   // { path: 'cart', component: ReturnComponent },
   { path: 'restock', component: RestockComponent,  canActivate: [AdminGuard] },
   {path:'cart', component: CartComponent},
-  {path: 'logout', component: LogoutComponent}
+  {path: 'logout', component: LogoutComponent},
+   {path: 'Ologin', component : AuthButtonComponent}
 ];
 
 @NgModule({

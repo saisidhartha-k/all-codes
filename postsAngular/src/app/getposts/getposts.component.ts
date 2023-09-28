@@ -4,6 +4,7 @@ import { AppService } from '../app.service';
 import { NgChipsComponent } from '../ng-chips/ng-chips/ng-chips.component';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-getposts',
@@ -16,8 +17,10 @@ export class GetpostsComponent {
   comments : any;
   newCommentContent: string = '';
   selectedUser: string = '';
+  selectedTags: string[] = []; 
+  autocompleteItems = ['Sidharth', 'SSS', 'AAA'];
 
-  constructor(private postService: AppService, private http: HttpClient) { }
+  constructor(private postService: AppService, private http: HttpClient,) { }
 
   ngOnInit(): void {
 
@@ -67,10 +70,22 @@ addComment(): void {
   }
 }
 
-insertSelectedUser(): void {
-  if (this.selectedUser) {
-    this.newCommentContent += ` @${this.selectedUser}`;
+insertSelectedTags() {
+  if (this.selectedTags.length > 0) {
+    let tags = this.selectedTags.map(tag => tag.toString());
+    this.newCommentContent += ` @${tags.join(' @')}`;
+    console.log(this.selectedTags);
   }
 }
+
+requestAutocompleteItems = (text: any): Observable<any> => {
+  const url = `./assets/data/states.json?q=${text}`;
+  return this.http.get(url).pipe(
+    map((data: any) => {
+      return data.states;
+    })
+  );
+};
+
 
 }

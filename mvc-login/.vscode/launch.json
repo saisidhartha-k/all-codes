@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<mvc-login>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.auth0.example.DemoApplication",
+            "projectName": "mvc-login",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

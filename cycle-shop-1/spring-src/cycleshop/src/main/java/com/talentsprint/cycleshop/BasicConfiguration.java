@@ -26,6 +26,8 @@ import org.springframework.security.oauth2.server.resource.web.access.BearerToke
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
+import org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2LoginConfigurer;
+import org.springframework.security.config.annotation.web.configurers.oauth2.client.OAuth2LoginConfigurer.*;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -77,6 +79,7 @@ public class BasicConfiguration {
             .logout(withDefaults())
             .httpBasic(withDefaults())
             //.formLogin(withDefaults())
+            //.oauth2Login(withDefaults())
             .oauth2ResourceServer(
                 oauth2ResourceServer -> oauth2ResourceServer.jwt(jwt -> 
                                                                     jwt.decoder(jwtDecoder())))

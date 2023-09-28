@@ -10,8 +10,13 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-
- 
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 75498e258fe27b7a3bd1
+            client-secret: 9a56f97b660a0138500551226cc66deacc2c7efc
 
 jwt:
   private:
