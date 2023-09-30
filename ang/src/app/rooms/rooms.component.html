@@ -1,0 +1,15 @@
+<p>rooms works!</p>
+
+<div [hidden]="hideRooms">
+  {{ selectedRoom | json }}
+  <app-rooms-list
+    [rooms]="roomList"
+    (selectedRoom)="selectRoom($event)"
+  ></app-rooms-list>
+</div>
+
+<!-- {{ roomList | json }} -->
+
+<button (click)="toggle()">toggle</button>
+
+<button (click)="addRoom()">new room</button>
