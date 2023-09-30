@@ -20,6 +20,7 @@ public class restController {
     @GetMapping("/secured")
     public String secured(@AuthenticationPrincipal OAuth2User user) {
         var username = user.getAttributes().get("login");
+        // var email = user.getAttribute().get("email");
         return String.format("Hello, %s, welcome to the secured site!", username);
     }
 }

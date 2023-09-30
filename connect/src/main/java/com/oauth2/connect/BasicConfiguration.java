@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import static org.springframework.security.config.Customizer.withDefaults;
+
 
 @Configuration
 @EnableWebSecurity
@@ -15,15 +17,15 @@ public class BasicConfiguration {
         http
                .authorizeHttpRequests(authorizeRequests -> {
                 authorizeRequests.requestMatchers("/", "/favicon.ico", "/error").permitAll() // Publicly accessible endpoints
-                    .anyRequest().authenticated(); // All other endpoints require authentication
+                    .anyRequest().authenticated(); 
             })
             .formLogin(formLogin -> {
                 formLogin
-                    .loginPage("/custom-login") // Specify the custom login page URL
-                    .permitAll(); // Allow access to the custom login page without authentication
+                    .loginPage("/") 
+                    .permitAll(); 
             })
-            .oauth2Login(withDefaults()) // OAuth2 login with default settings
-            .csrf().disable(); // Disable CSRF for simplicity, enable it in production
+            .oauth2Login(withDefaults()) 
+            .csrf().disable();
 
         return http.build();
     }

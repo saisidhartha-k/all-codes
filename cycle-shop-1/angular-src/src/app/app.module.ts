@@ -18,6 +18,7 @@ import { CartComponent } from './cart/cart.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RemoveFromCartComponent } from './remove-from-cart/remove-from-cart.component';
 import { AuthButtonComponent } from './auth-button-component/auth-button-component.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { AuthButtonComponent } from './auth-button-component/auth-button-compone
     CartComponent,
     LogoutComponent,
     RemoveFromCartComponent,
-     AuthButtonComponent
+     AuthButtonComponent,
+     UserProfileComponent
   ],
   imports: [
     BrowserModule,
