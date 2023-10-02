@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Test2Application<test2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.user.test2.Test2Application",
+            "projectName": "test2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaServerApplication<test1>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.micro1.test1.EurekaServerApplication",
+            "projectName": "test1",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Test3Application<test3>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.consumer.test3.Test3Application",
+            "projectName": "test3",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
