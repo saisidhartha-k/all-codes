@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.talentsprint.cycleshop.business.LoggedInUser;
 import com.talentsprint.cycleshop.dto.CycleJsonInputIdCount;
 import com.talentsprint.cycleshop.entity.Cycle;
 import com.talentsprint.cycleshop.entity.Items;
@@ -30,12 +32,15 @@ import com.talentsprint.cycleshop.service.CycleService;
 @RequestMapping("/api/cycles")
 public class CycleRestController {
 
-    
+        String Uname = ""; 
     @Autowired
     private CycleService cycleService;
 
 	@Autowired
 	private CartService cartService;
+
+    @Autowired
+    private LoggedInUser loggedInUser;
 
     @PostMapping("/{id}/borrow")
     public ResponseEntity<String> borrowCycle(
@@ -97,16 +102,29 @@ public class CycleRestController {
         return cartService.getAllCartItems(username);
     }
 
-	@PostMapping("/checkout")
-    public List<Items> checkOut() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    	String name = authentication.getName();
-        List<Items> items = cartService.checkOut(name);
-        if (items != null) {
-            return items;
-        } else {
+	// @PostMapping("/checkout")
+    // public List<Items> checkOut() {
+	// 	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    // 	String name = authentication.getName();
+    //     List<Items> items = cartService.checkOut(name);
+    //     if (items != null) {
+    //         return items;
+    //     } else {
             
-            return new ArrayList<>(); 
-        }
+    //         return new ArrayList<>(); 
+    //     }
+    // }
+
+    @GetMapping("/loggedInUser")
+    public String getUser()
+    {
+        
+        return Uname;
     }
+
+    @GetMapping("/storeUser")
+    public void storeUser()
+    {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    	Uname = authentication.getName();    }
 }

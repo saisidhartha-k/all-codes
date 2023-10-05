@@ -1,4 +1,4 @@
-package com.talentsprint.cycleshop.entity;
+package com.example.checkout.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +25,6 @@ public class User {
 	}
 
 	public String getRole() {
-		// TODO Auto-generated method stub
 		return this.role;
 	}
 

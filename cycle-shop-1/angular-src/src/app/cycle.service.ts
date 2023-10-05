@@ -10,7 +10,8 @@ import { CartItem } from './cart-item';
 
 export class CycleService {
 
-  private apiUrl = 'http://localhost:8080/api/cycles'; 
+  private apiUrl = 'http://localhost:8080/'; 
+  private checkoutUrl = 'http://localhost:8083/';
   private tokenKey: string = 'auth-token';
 
   constructor(private http: HttpClient) {}
@@ -61,7 +62,7 @@ export class CycleService {
 
   checkout(): Observable<CartItem[]> {
 
-    return this.http.post<CartItem[]>(`${this.apiUrl}/checkout`, {}, { headers: this.getHeader() });
+    return this.http.post<CartItem[]>(`${this.checkoutUrl}/checkout`, {});
   }
 
   removeFromCart(cycleId: number, quantity: number): Observable<any> {

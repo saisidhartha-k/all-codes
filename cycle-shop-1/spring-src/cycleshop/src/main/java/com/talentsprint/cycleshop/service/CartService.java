@@ -123,46 +123,46 @@ public class CartService {
         return new ArrayList<>();
     }
 
-    public List<Items> checkOut(String name) {
+    // public List<Items> checkOut(String name) {
 
-        User user = userRepository.findByName(name).get();
-        Optional<Cart> cart = cartRepository.findByUser(user);
-        List<Items> listItems = new ArrayList<>();
-        if (cart.isPresent()) {
-            Optional<Checkout> checkout = checkOutRepository.findByUser(user);
-            if (checkout.isPresent()) {
-                checkout.get().getItems().addAll(cart.get().getItems());
-                checkout.get().setTotalPrice(addTotalPrice(cart.get()));
-                listItems = checkout.get().getItems();
-                checkOutRepository.save(checkout.get());
-            }
+    //     User user = userRepository.findByName(name).get();
+    //     Optional<Cart> cart = cartRepository.findByUser(user);
+    //     List<Items> listItems = new ArrayList<>();
+    //     if (cart.isPresent()) {
+    //         Optional<Checkout> checkout = checkOutRepository.findByUser(user);
+    //         if (checkout.isPresent()) {
+    //             checkout.get().getItems().addAll(cart.get().getItems());
+    //             checkout.get().setTotalPrice(addTotalPrice(cart.get()));
+    //             listItems = checkout.get().getItems();
+    //             checkOutRepository.save(checkout.get());
+    //         }
 
-            else {
-                Checkout newCheckout = new Checkout();
-                newCheckout.setUser(user);
-                newCheckout.getItems().addAll(cart.get().getItems());
-                listItems = newCheckout.getItems();
-                checkOutRepository.save(newCheckout);
-            }
+    //         else {
+    //             Checkout newCheckout = new Checkout();
+    //             newCheckout.setUser(user);
+    //             newCheckout.getItems().addAll(cart.get().getItems());
+    //             listItems = newCheckout.getItems();
+    //             checkOutRepository.save(newCheckout);
+    //         }
 
-            cartRepository.delete(cart.get());
-            return listItems;
+    //         cartRepository.delete(cart.get());
+    //         return listItems;
 
-        }
-        return null;
+    //     }
+    //     return null;
 
-    }
+    // }
 
-    private int addTotalPrice(Cart cart) {
-        System.out.println(cart.getItems());
-        List<Items> item = cart.getItems();
-        int total_price = 0;
-        for (Items i : item) {
-            int temp_price = i.getQuantity() * i.getCycle().getPrice();
-            total_price = total_price + temp_price;
-        }
-        System.out.println(total_price);
-        return total_price;
-    }
+    // private int addTotalPrice(Cart cart) {
+    //     System.out.println(cart.getItems());
+    //     List<Items> item = cart.getItems();
+    //     int total_price = 0;
+    //     for (Items i : item) {
+    //         int temp_price = i.getQuantity() * i.getCycle().getPrice();
+    //         total_price = total_price + temp_price;
+    //     }
+    //     System.out.println(total_price);
+    //     return total_price;
+    // }
 
 }

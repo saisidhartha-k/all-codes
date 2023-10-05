@@ -74,7 +74,7 @@ public class BasicConfiguration {
             .cors(cors -> cors.configurationSource(corsConfig))
             .authorizeHttpRequests((requests) -> requests
            //.requestMatchers("/register", "/api/auth/token", "/api/cycles/*/*", "/api/cycles/**").permitAll()
-            .requestMatchers("/register","/api/auth/token").permitAll()
+            .requestMatchers("/register","/api/auth/token","/api/cycles/loggedInUser").permitAll()
             .anyRequest().authenticated())
             .logout(withDefaults())
             .httpBasic(withDefaults())
